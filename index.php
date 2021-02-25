@@ -2,12 +2,18 @@
 require_once 'postRenderer.php';
 
 $pageTitle = "Blog";
+$supportsPathVariables = true;
+
+// Check if we're running locally in the development server
+if (isset($_SERVER['SERVER_SOFTWARE']) && strpos($_SERVER['SERVER_SOFTWARE'], "Development Server") > -1) {
+  $supportsPathVariables = false;
+}
 
 $isPost = false;
 if (isset($_GET['page']) && !is_null($_GET['page'])) {
   $isPost = true;
   $postSlug = $_GET['page'];
-  $page = 'posts/' . $postSlug;
+  $page = 'posts/' . $postSlug . ".md";
   if (file_exists($page)) {
     $markdown = file_get_contents($page);
     $pageTitle = getPostTitle($markdown);
@@ -39,11 +45,11 @@ if (isset($_GET['page']) && !is_null($_GET['page'])) {
         $md = file_get_contents($path . '/' . $file);
         // Get only summary (first lines of post)
         $md = getFirstLines($md, 3);
-        $md = addTitleHref($md, $file);
+        $md = addTitleHref($md, $file, $supportsPathVariables);
     ?>
         <div class="blog-post">
           <?php echo renderMarkdown($md); ?>
-          <a href="<?php echo explode('.', $file)[0] ?>">Read post</a>
+          <?php echo postHref($file, "Read post", $supportsPathVariables); ?>
         </div>
       <?php }
     } else { ?>

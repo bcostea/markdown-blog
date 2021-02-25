@@ -21,6 +21,11 @@ function getPostTitle($postContent) {
   return $matches[1];
 }
 
+function postHref($fileName, $linkText, $supportsPathVariables) {
+
+  return '<a href="' . ( $supportsPathVariables? '' : '?page=') . getPostSlug($fileName) . '">'.$linkText.'</a>';
+}
+
 function addTitleHref($postContent, $fileName) {
   // Make post title clickable (links to post slug)
   $firstLinePattern = '/^# (.*)(\r\n|\r|\n)$/m';
