@@ -1,0 +1,176 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Martel:wght@700&family=Noto+Sans+JP:wght@300&display=swap');
+
+html, body {
+  font-family: 'Noto Sans JP',Helvetica, Arial, Freesans, clean, sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: ivory;
+}
+
+body {
+  padding:1em;
+  margin:auto;
+  max-width:64em;
+}
+
+.page {
+  margin: 0 auto;
+  padding: 50px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.markdown {
+  max-width: 800px;
+}
+
+.markdown h1 {
+  text-align: center;
+}
+
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  text-align: left;
+}
+
+.markdown blockquote {
+  background: #fafafa;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 5px 10px 5px 35px;
+  position: relative;
+  overflow: hidden;
+}
+
+.markdown blockquote:before,
+.markdown blockquote:after {
+  content: '“';
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  line-height: 50px;
+  font-size: 80px;
+  color: rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
+}
+
+.markdown blockquote:after {
+  content: '”';
+  left: initial;
+  top: initial;
+  line-height: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+
+img {
+	max-width: 100%;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table, th, td {
+	border: 1px solid #EAEAEA;
+	border-radius: 3px;
+	padding: 5px;
+}
+
+tr:nth-child(even) {
+	background-color: #F8F8F8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Martel', serif;
+  font-weight: bold;
+}
+
+h1 {
+  margin: 1em 0 .25em 0;
+  font-size: 160%;
+  color: #000000;
+}
+
+@media (min-width: 621px) {
+  .post h1{
+    font-size: 250%;
+  }
+}
+
+@media (min-width: 820px) {
+  .post h1 {
+    font-size: 400%;
+  }
+}
+
+h2 {
+    border-bottom: 1px solid #CCCCCC;
+    color: #000000;
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+h5 {
+    font-size: 14px;
+}
+
+h6 {
+    color: #777777;
+    background-color: inherit;
+    font-size: 14px;
+}
+
+hr {
+    height: 0.2em;
+    border: 0;
+    color: #CCCCCC;
+    background-color: #CCCCCC;
+}
+
+p, blockquote, ul, ol, dl, li, table, pre {
+    margin: 15px 0;
+}
+
+code, pre {
+    border-radius: 3px;
+    background-color: #F8F8F8;
+    color: inherit;
+}
+
+code {
+    border: 1px solid #EAEAEA;
+    margin: 0 2px;
+    padding: 0 5px;
+}
+
+pre {
+    border: 1px solid #CCCCCC;
+    line-height: 1.25em;
+    overflow: auto;
+    padding: 6px 10px;
+}
+
+pre > code {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+a, a:visited {
+    color: #4183C4;
+    background-color: inherit;
+    text-decoration: none;
+}

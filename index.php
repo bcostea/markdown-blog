@@ -7,21 +7,21 @@ if (isset($_SERVER['SERVER_SOFTWARE']) && strpos($_SERVER['SERVER_SOFTWARE'], "D
   $supportsPathVariables = false;
 }
 
-$pageTitle = "Blog";
+$pageTitle = "Startup Factory";
 $isPost = false;
 
 if (isset($_GET['page']) && !is_null($_GET['page'])) {
   $isPost = true;
   $postSlug = $_GET['page'];
 
-  if($supportsPathVariables){
-    $postSlug = explode("/",$postSlug)[2];
+  if ($supportsPathVariables) {
+    $postSlug = explode("/", $postSlug)[2];
   }
 
   $page = 'posts/' . $postSlug . ".md";
   if (file_exists($page)) {
     $markdown = file_get_contents($page);
-    $pageTitle = getPostTitle($markdown);
+    $pageTitle = getPostTitle($markdown) . " - " . $pageTitle;
   } else {
     $markdown = "# 404 <br/> Post '$postSlug' not found 😢 ";
     $pageTitle = 'Blog post not found!';
@@ -36,12 +36,13 @@ if (isset($_GET['page']) && !is_null($_GET['page'])) {
 <head>
   <title><?php echo $pageTitle ?></title>
   <base href="/" />
-  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="index.css">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-  <div class="blog">
+  <div class="page">
 
     <?php if (!$isPost) {
       $path = './posts';
@@ -59,7 +60,7 @@ if (isset($_GET['page']) && !is_null($_GET['page'])) {
         </div>
       <?php }
     } else { ?>
-      <div class='markdown'>
+      <div class='markdown post'>
         <?php echo renderMarkdown($markdown); ?>
       </div>
     <?php } ?>

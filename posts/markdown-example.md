@@ -35,7 +35,6 @@ Numbered list:
 Link [example](https://www.usertrack.net).
 
 ### Image:
-![Image](https://www.usertrack.net/img/usertrack_logo.svg "icon")
 
 > Markdown uses email-style > characters for blockquoting.
 Inline <sup title="Hypertext Markup Language">HTML</sup> is supported.
