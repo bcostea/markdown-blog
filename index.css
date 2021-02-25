@@ -16,6 +16,7 @@ body {
 .page {
   margin: 0 auto;
   padding: 50px;
+  padding-top:20px;
   border: 1px solid #ccc;
   background-color: white;
 }
@@ -97,13 +98,13 @@ h1 {
 
 @media (min-width: 621px) {
   .post h1{
-    font-size: 250%;
+    font-size: 240%;
   }
 }
 
 @media (min-width: 820px) {
   .post h1 {
-    font-size: 400%;
+    font-size: 300%;
   }
 }
 
@@ -171,4 +172,30 @@ a, a:visited {
     color: #4183C4;
     background-color: inherit;
     text-decoration: none;
+}
+
+.back-btn{
+  font-weight: bold;
+  font-size: 32px;
+  color: #999 !important;
+}
+
+.back-btn:hover{
+  color: #333 !important;
+}
+
+.logo {
+  float:right;
+  font-size: 30px;
+  font-weight: bold;
+  color: #999 !important;
+}
+
+.blog-post ul {
+  font-weight: bold;
+  font-family: Garamond, Cambria, Georgia, Times, serif;
+  font-size:1.2em;
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
 }

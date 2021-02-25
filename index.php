@@ -43,29 +43,38 @@ if (isset($_GET['page']) && !is_null($_GET['page'])) {
 </head>
 
 <body>
-  <div class="page">
+  <main class="page">
 
     <?php if (!$isPost) {
       $path = './posts';
       $files = array_slice(scandir($path), 2);
-
+    ?>
+      <span class="logo">Startup Factory</span>
+      <h1>Table of contents</h1>
+      <br />
+      <?php
       foreach ($files as $file) {
         $md = file_get_contents($path . '/' . $file);
         // Get only summary (first lines of post)
         $md = getFirstLines($md, 3);
+        $md = str_replace("#", "*", $md);
         $md = addTitleHref($md, $file, $supportsPathVariables);
-    ?>
-        <div class="blog-post">
+      ?>
+
+        <article class="blog-post">
           <?php echo renderMarkdown($md); ?>
           <?php echo postHref($file, "Read post", $supportsPathVariables); ?>
-        </div>
+        </article>
       <?php }
     } else { ?>
+      <span class="logo">Startup Factory</span>
+      <a class="back-btn" href='/'>&lt;</a>
+
       <div class='markdown post'>
         <?php echo renderMarkdown($markdown); ?>
       </div>
     <?php } ?>
-  </div>
+  </main>
 
 </body>
 
