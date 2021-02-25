@@ -2,7 +2,7 @@
 require_once 'Parsedown.php';
 require_once 'ParsedownExtra.php';
 
-$parseDown= new ParsedownExtra();
+$parseDown = new ParsedownExtra();
 
 function renderMarkdown($markdown) {
   global $parseDown;
@@ -22,13 +22,13 @@ function getPostTitle($postContent) {
 }
 
 function postHref($fileName, $linkText, $supportsPathVariables) {
-  return '<a href="' . ( $supportsPathVariables? 'page/' : '?page=') . getPostSlug($fileName) . '">'.$linkText.'</a>';
+  return '<a href="' . ($supportsPathVariables ? 'page/' : '?page=') . getPostSlug($fileName) . '">' . $linkText . '</a>';
 }
 
-function addTitleHref($postContent, $fileName) {
+function addTitleHref($postContent, $fileName, $supportsPathVariables) {
   // Make post title clickable (links to post slug)
   $firstLinePattern = '/^# (.*)(\r\n|\r|\n)$/m';
-  $replacement  = '# [${1}](' . getPostSlug($fileName) . ')${2}'; // # [title](slug)NEW_LINE
+  $replacement  = '# [${1}](' . ($supportsPathVariables ? 'page/' : '?page=') . getPostSlug($fileName) . ')${2}'; // # [title](slug)NEW_LINE
   return preg_replace($firstLinePattern, $replacement, $postContent);
 }
 
