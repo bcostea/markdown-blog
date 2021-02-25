@@ -1,8 +1,7 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Martel:wght@700&family=Noto+Sans+JP:wght@300&display=swap');
 
 html, body {
-  font-family: 'Noto Sans JP',Helvetica, Arial, Freesans, clean, sans-serif;
+  font-family: Helvetica, Arial, Freesans, clean, sans-serif;
   padding: 0;
   margin: 0;
   background-color: ivory;
@@ -87,14 +86,13 @@ tr:nth-child(even) {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Martel', serif;
-  font-weight: bold;
+  font-family: Garamond, Cambria, Georgia, Times, serif;
 }
 
 h1 {
   margin: 1em 0 .25em 0;
   font-size: 160%;
-  color: #000000;
+  color: #333;
 }
 
 @media (min-width: 621px) {
@@ -111,7 +109,7 @@ h1 {
 
 h2 {
     border-bottom: 1px solid #CCCCCC;
-    color: #000000;
+    color: #333;
     font-size: 24px;
 }
 

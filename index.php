@@ -36,6 +36,7 @@ if (isset($_GET['page']) && !is_null($_GET['page'])) {
 <head>
   <title><?php echo $pageTitle ?></title>
   <base href="/" />
+
   <link rel="stylesheet" href="index.css">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
