@@ -1,18 +1,23 @@
 <?php
 require_once 'postRenderer.php';
 
-$pageTitle = "Blog";
-$supportsPathVariables = true;
-
 // Check if we're running locally in the development server
+$supportsPathVariables = true;
 if (isset($_SERVER['SERVER_SOFTWARE']) && strpos($_SERVER['SERVER_SOFTWARE'], "Development Server") > -1) {
   $supportsPathVariables = false;
 }
 
+$pageTitle = "Blog";
 $isPost = false;
+
 if (isset($_GET['page']) && !is_null($_GET['page'])) {
   $isPost = true;
   $postSlug = $_GET['page'];
+
+  if($supportsPathVariables){
+    $postSlug = explode("/",$postSlug)[2];
+  }
+
   $page = 'posts/' . $postSlug . ".md";
   if (file_exists($page)) {
     $markdown = file_get_contents($page);
@@ -30,6 +35,7 @@ if (isset($_GET['page']) && !is_null($_GET['page'])) {
 
 <head>
   <title><?php echo $pageTitle ?></title>
+  <base href="/" />
   <link rel="stylesheet" href="blog.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
