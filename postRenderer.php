@@ -22,8 +22,7 @@ function getPostTitle($postContent) {
 }
 
 function postHref($fileName, $linkText, $supportsPathVariables) {
-
-  return '<a href="' . ( $supportsPathVariables? '' : '?page=') . getPostSlug($fileName) . '">'.$linkText.'</a>';
+  return '<a href="' . ( $supportsPathVariables? 'page/' : '?page=') . getPostSlug($fileName) . '">'.$linkText.'</a>';
 }
 
 function addTitleHref($postContent, $fileName) {
